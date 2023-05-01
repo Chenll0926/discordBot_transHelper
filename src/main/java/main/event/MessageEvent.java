@@ -6,13 +6,13 @@ import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.sharding.ShardManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumSet;
 import java.util.List;
 
 public class MessageEvent extends ListenerAdapter {
-
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event){
         //如果是机器人发送消息则忽略事件
@@ -21,6 +21,7 @@ public class MessageEvent extends ListenerAdapter {
         }
 
         Message message = event.getMessage();
+        System.out.println(message.getContentDisplay());
 
         //获取服务器信息
         Guild guild = message.getGuild();
