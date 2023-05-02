@@ -6,7 +6,6 @@ import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.sharding.ShardManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumSet;
@@ -62,7 +61,7 @@ public class MessageEvent extends ListenerAdapter {
         System.out.println("messageType = " + messageType);
 
         //回复消息
-        messageChannel.sendMessage("receive" + messageContentRaw).queue();
+        messageChannel.sendMessage(memberNickname + " said " + messageContentRaw).queue();
 
     }
 }
